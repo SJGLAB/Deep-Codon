@@ -1,15 +1,5 @@
-# -*- coding: utf-8 -*-
-# @Author: Jie
-# @Date:   2017-02-16 09:53:19
-# @Last Modified by:   Jie Yang,     Contact: jieynlp@gmail.com
-# @Last Modified time: 2017-12-19 15:23:12
-
-# from operator import add
-#
 from __future__ import print_function
 import sys
-
-
 
 ## input as sentence level labels
 def get_ner_fmeasure(golden_lists, predict_lists, label_type="BMES"):

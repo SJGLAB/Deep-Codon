@@ -1,13 +1,3 @@
-# -*- coding: utf-8 -*-
-# @Author: Jie Yang
-# @Date:   2017-11-27 16:53:36
-# @Last Modified by:   Jie Yang,     Contact: jieynlp@gmail.com
-# @Last Modified time: 2018-06-25 10:26:30
-
-
-"""
-    convert NER/Chunking tag schemes, i.e. BIO->BIOES, BIOES->BIO, IOB->BIO, IOB->BIOES
-"""
 from __future__ import print_function
 
 import sys
