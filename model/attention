@@ -1,3 +1,11 @@
+# !/usr/bin/env python3 
+# -*- coding: utf-8 -*-
+"""
+Copyright 2025 Baidu Inc. All Rights Reserved.
+2024/3/6, by SJGLAB@163.com, create
+
+"""
+
 from __future__ import print_function
 from torch.nn.utils.rnn import pack_padded_sequence, pad_packed_sequence
 import torch
@@ -213,3 +221,4 @@ class attention_xca_xca_label_1_stack(nn.Module):
         lstm_out = self.xca_attention(lstm_out)+lstm_out
         lstm_out = self.xca_attention_label(lstm_out, label_embs)+lstm_out
         return lstm_out
+
