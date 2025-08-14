@@ -26,7 +26,7 @@ Only a standard computer with enough RAM to support the in-memory operations is 
 Python 3.X  
 #### Python dependencies:
 (1)	torch  
-(2)	Bio 
+(2)	Bio   
 (3)	torchvision 
 
 ## Installation_Guide
@@ -41,7 +41,7 @@ We recommend you to use Anaconda to prepare the environments.
 
 ## Usage and Demo
 ### Example of Running Command
-python test.py --status dev --batch_size 8 --hidden_dim 3000 --word_emb_dim 3000 --lstm_layer 4 --train_dir ./data/train_cds_2k5_all_label.txt --dev_dir ./data/val_cds_2k5_all_label.txt --test_dir ./data/test_cds_2k5_all_label.txt --load_model_dir w3000_xlxx_num20.model --dset_dir w3000_xlxx_num20.dset --word_emb_dir ./data/train3000.vector
+python test.py --status dev --batch_size 8 --hidden_dim 3000 --word_emb_dim 3000 --lstm_layer 4 --train_dir ./data/train_cds_2k5_all_label.txt --dev_dir ./data/val_cds_2k5_all_label.txt --test_dir ./data/test_cds_2k5_all_label.txt --load_model_dir w3000_xlxx_num20.model --dset_dir w3000_xlxx_num20.dset
 
 ## Contact Us
 If you have any questions in using Deep-XCCA, contact us.
