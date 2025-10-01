@@ -399,13 +399,13 @@ def eval_model_decode(data, name):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Tuning with NCRF++')
+    parser = argparse.ArgumentParser(description='Deep-XCCA test')
     # parser.add_argument('--status', choices=['train', 'decode'], help='update algorithm', default='train')
     parser.add_argument('--config',  help='Configuration File' )
     # # POS wsj
     parser.add_argument('--train_dir', default='./data/train_cds_2k5_all_label.txt', help='train_file')
-    parser.add_argument('--dev_dir', default='./data/val_cds_2k5_all_label.txt ', help='dev_file')
-    parser.add_argument('--test_dir', default='../data/test_cds_2k5_all_label.txt', help='test_file')
+    parser.add_argument('--dev_dir', default='./data/val_cds_2k5_all_label.txt', help='dev_file')
+    parser.add_argument('--test_dir', default='./data/test_cds_2k5_all_label.txt', help='test_file')
     parser.add_argument('--raw_dir', default='wsj_pos/raw.pos', help='raw_file')
     parser.add_argument('--nbest', default=None)
     parser.add_argument('--decode_dir', default='1.out', help='out_file')
@@ -549,3 +549,4 @@ if __name__ == '__main__':
         data.write_decoded_results(decode_results, 'raw')
     else:
         print("Invalid argument! Please use valid arguments! (train/test/decode)")
+
