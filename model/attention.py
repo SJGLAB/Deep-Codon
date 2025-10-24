@@ -135,21 +135,6 @@ class XCA_label_1(nn.Module):
         x = self.proj_drop(x)
         return x
 
-    def forward(self, x):
-        B, N, C = x.shape
-        qkv = self.qkv(x).reshape(B, N, 3, self.num_heads, C // self.num_heads).permute(2, 0, 3, 4, 1)
-        q, k, v = qkv.unbind(0)
-
-        q = torch.nn.functional.normalize(q, dim=-1)
-        k = torch.nn.functional.normalize(k, dim=-1)
-        attn = (q @ k.transpose(-2, -1)) * self.temperature
-        attn = attn.softmax(dim=-1)
-        attn = self.attn_drop(attn)
-
-        x = (attn @ v).permute(0, 3, 1, 2).reshape(B, N, C)
-        x = self.proj(x)
-        x = self.proj_drop(x)
-        return x
 class LPI(nn.Module):
     """
     Local Patch Interaction module that allows explicit communication between tokens in 3x3 windows
@@ -236,3 +221,4 @@ class attention_xca_xca_label_1_stack(nn.Module):
         lstm_out = self.xca_attention(lstm_out)+lstm_out
         lstm_out = self.xca_attention_label(lstm_out, label_embs)+lstm_out
         return lstm_out
+
