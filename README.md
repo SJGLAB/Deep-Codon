@@ -10,7 +10,10 @@ _model/attention.py_ codes for Deep-XCCA attention.
 _model/wordsequence.py_ codes for Deep-XCCA model.  
 _utils/data.py_ codes for input embedding vectors and 64-possible codons as embedding vectors.  
 _utils/metric.py_ codes for evaluation metric.   
-model weights:https://pan.baidu.com/share/init?surl=tXn8EllT9gwdm8gsebI0PA&pwd=1310
+
+## Model_weights
+[model weights]
+(https://pan.baidu.com/share/init?surl=tXn8EllT9gwdm8gsebI0PA&pwd=1310)
 
 ## System_Requirements
 ### 1.Hardware requorements
@@ -41,6 +44,9 @@ We recommend you to use Anaconda to prepare the environments.
 ## Usage and Demo
 ### Example of Running Command
 python test.py --status dev --batch_size 8 --hidden_dim 3000 --word_emb_dim 3000 --lstm_layer 4 --load_model_dir w3000_xlxx_num20.model --dset_dir w3000_xlxx_num20.dset
+
+## Thanks
+We build out model based on the architecture [code](https://github.com/Devil625/Codon_Optimization)
 
 ## Contact Us
 If you have any questions in using Deep-XCCA, contact us.
