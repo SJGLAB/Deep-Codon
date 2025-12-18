@@ -28,7 +28,7 @@ from logging.handlers import RotatingFileHandler
 
 LOG_FORMAT = "%(asctime)s - %(levelname)s %(name)s %(filename)s [line:%(lineno)d] - %(message)s"
 # tfh=logging.handlers.TimedRotatingFileHandler('log/tfh_log.log', when='S', interval=1.5, backupCount=2, encoding='UTF-8', delay=False, utc=False, atTime=time)
-rfh=logging.handlers.RotatingFileHandler(filename='log/word3000_xlxx_num20.log',encoding='UTF-8', maxBytes=0, backupCount=0)
+rfh=logging.handlers.RotatingFileHandler(filename='test.log',encoding='UTF-8', maxBytes=0, backupCount=0)
 sh=logging.StreamHandler()
 logging.basicConfig(format=LOG_FORMAT,level=logging.DEBUG,handlers=[rfh,sh])
 
@@ -373,6 +373,7 @@ def test_model_decode(data, name):
     #     model.load_state_dict(torch.load(model_dir))
     #     # model = torch.load(model_dir)
     model.load_state_dict(torch.load(data.load_model_dir))
+    model.eval()    
     pred_results = predict(data, model, name, data.nbest)
     return pred_results
 
@@ -389,6 +390,7 @@ def eval_model_decode(data, name):
     #     model.load_state_dict(torch.load(model_dir))
     #     # model = torch.load(model_dir)
     model.load_state_dict(torch.load(data.load_model_dir))
+    model.eval()
 
     print("Decode %s data, nbest: %s ..."%(name, data.nbest))
     start_time = time.time()
@@ -442,7 +444,7 @@ if __name__ == '__main__':
     parser.add_argument('--char_hidden_dim', default=50)
     parser.add_argument('--hidden_dim', default=600)
     parser.add_argument('--dropout', default=0.2)
-    parser.add_argument('--lstm_layer', default=4)
+    parser.add_argument('--N_layer', default=4)
     parser.add_argument('--bilstm', default=True)
     parser.add_argument('--learning_rate', default=0.001)
     parser.add_argument('--lr_decay',default=0.05)
