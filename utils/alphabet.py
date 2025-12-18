@@ -14,7 +14,7 @@ class Alphabet:
 
         # Index 0 is occupied by default, all else following.
         self.default_index = 0
-        self.next_index = 1
+        self.next_index = 0
         if not self.label:
             self.add(self.UNKNOWN)
 
@@ -25,7 +25,7 @@ class Alphabet:
 
         # Index 0 is occupied by default, all else following.
         self.default_index = 0
-        self.next_index = 1
+        self.next_index = 0
 
     def add(self, instance):
         if instance not in self.instance2index:
@@ -51,7 +51,7 @@ class Alphabet:
             # First index is occupied by the wildcard element.
             return None
         try:
-            return self.instances[index - 1]
+            return self.instances[index]
         except IndexError:
             print('WARNING:Alphabet get_instance ,unknown instance, return the first label.')
             return self.instances[0]
@@ -60,7 +60,7 @@ class Alphabet:
         # if self.label:
         #     return len(self.instances)
         # else:
-        return len(self.instances) + 1
+        return len(self.instances)
 
     def iteritems(self):
         if sys.version_info[0] < 3:  # If using python3, dict item access uses different syntax

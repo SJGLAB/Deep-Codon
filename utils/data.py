@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+# @Author: Jie
+# @Date:   2017-06-14 17:34:32
+# @Last Modified by:   Jie Yang,     Contact: jieynlp@gmail.com
+# @Last Modified time: 2018-06-22 00:01:47
 from __future__ import print_function
 from __future__ import absolute_import
 import sys
@@ -92,7 +97,7 @@ class Data:
         self.HP_char_hidden_dim = 50
         self.HP_hidden_dim = 200#600
         self.HP_dropout = 0.5
-        self.HP_lstm_layer = 1
+        self.N_layer = 6
         self.HP_bilstm = True
 
         self.HP_gpu = False
@@ -162,7 +167,7 @@ class Data:
         print("     Hyper              l2: %s"%(self.HP_l2))
         print("     Hyper      hidden_dim: %s"%(self.HP_hidden_dim))
         print("     Hyper         dropout: %s"%(self.HP_dropout))
-        print("     Hyper      lstm_layer: %s"%(self.HP_lstm_layer))
+        print("     Hyper      N_layer: %s"%(self.N_layer))
         print("     Hyper          bilstm: %s"%(self.HP_bilstm))
         print("     Hyper             GPU: %s"%(self.HP_gpu))
         print("DATA SUMMARY END.")
@@ -185,6 +190,8 @@ class Data:
         self.feature_emb_dirs = [None]*self.feature_num
         self.norm_feature_embs = [False]*self.feature_num
         self.feature_alphabet_sizes = [0]*self.feature_num
+        
+        # print(self.feature_alphabets)
         if self.feat_config:
             for idx in range(self.feature_num):
                 if self.feature_name[idx] in self.feat_config:
@@ -213,6 +220,7 @@ class Data:
                     self.feature_alphabets[idx].add(feat_idx)
                 for char in word:
                     self.char_alphabet.add(char)
+
         self.word_alphabet_size = self.word_alphabet.size()
         self.char_alphabet_size = self.char_alphabet.size()
         self.label_alphabet_size = self.label_alphabet.size()
@@ -411,7 +419,7 @@ class Data:
 
         self.HP_dropout = float(args.dropout)
 
-        self.HP_lstm_layer = int(args.lstm_layer)
+        self.N_layer = int(args.N_layer)
 
         self.HP_bilstm = args.bilstm
 
@@ -432,11 +440,6 @@ class Data:
         self.num_attention_head = int(args.num_attention_head)
 
         self.whether_clip_grad = str2bool(args.whether_clip_grad)
-
-        ##
-        # self.MAX_SENTENCE_LENGTH = int(args.MAX_SENTENCE_LENGTH)
-        #
-        # self.MAX_WORD_LENGTH = int(args.MAX_WORD_LENGTH )
 
 
 
