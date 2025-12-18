@@ -1,4 +1,4 @@
-# Deep-XCCA
+# Deep-Codon
 ## Overview
 Repository for the application of Deep-Codon. Messenger RNA (mRNA)-based vaccines have been demonstrated as a promising technology for preventing viral infections due to their safety, rapid production, high potency, and ease of industrialization. There are still some challenges faced by mRNA vaccine design, one of which is how to optimize the coding sequence (CDS) of mRNA to improve its translation efficiency. Here, we proposed a codon attention (CA) mechanism to represent codon selection probabilities for each amino acid of the inputted protein, and then based on CA we developed a deep learning method called Deep-Codon for CDS optimization, which was specifically designed to learn the long-term dependencies both in the amino acid and the codon sequences.   
 
